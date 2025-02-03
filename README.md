@@ -1,2 +1,2 @@
 # will-you-be-my-valentine-
-hi pookie, i don't know anything about coding, but for you i'll try to learn. I start here, please say yess :*.
+hi poopie, I don't know anything about coding, but for you I'll try to learn. I start here, please say yess :*.
