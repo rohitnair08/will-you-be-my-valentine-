@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <style>
+        body {
+            background-color: #fce4ec;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 50px;
+            color: #ff66b2;
+            margin-bottom: 20px;
+        }
+
+        .message {
+            font-size: 24px;
+            color: #ff3399;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .buttons {
+            margin-top: 40px;
+        }
+
+        button {
+            padding: 15px 40px;
+            font-size: 20px;
+            background-color: #ff66b2;
+            border: none;
+            border-radius: 50px;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+        }
+
+        #yesBtn {
+            background-color: #ff80bf;
+        }
+
+        #noBtn {
+            background-color: #ff4d94;
+        }
+
+        .gif-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .gif-container img {
+            max-width: 250px;
+            max-height: 250px;
+            margin: 10px;
+            border-radius: 15px;
+        }
+
+        .final-message {
+            font-size: 24px;
+            color: #ff66b2;
+            font-weight: bold;
+            margin-top: 30px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Will You Be My Valentine?</h1>
+
+    <div class="message" id="message">Please, say yes!</div>
+
+    <div class="buttons">
+        <button id="yesBtn">Yes, I do!</button>
+        <button id="noBtn">Maybe Later...</button>
+    </div>
+
+    <div class="gif-container" id="gifContainer"></div>
+
+    <div class="final-message" id="finalMessage"></div>
+
+    <script>
+        const yesButton = document.getElementById("yesBtn");
+        const noButton = document.getElementById("noBtn");
+        const messageDiv = document.getElementById("message");
+        const gifContainer = document.getElementById("gifContainer");
+        const finalMessage = document.getElementById("finalMessage");
+
+        // When user clicks "Yes"
+        yesButton.addEventListener("click", () => {
+            messageDiv.innerHTML = "Yayyy!! 😍💖 You said YES!";
+            gifContainer.innerHTML = `<img src="https://media.giphy.com/media/l0HlNOFq9zXy5fe1u/giphy.gif" alt="Cute Panda Kiss">`;
+            finalMessage.innerHTML = "I'm so happy! 🎉🎉";
+            yesButton.disabled = true;
+            noButton.disabled = true;
+        });
+
+        // When user clicks "No"
+        noButton.addEventListener("click", () => {
+            messageDiv.innerHTML = "Aww, come on! 😢";
+            gifContainer.innerHTML = `<img src="https://media.giphy.com/media/26AOKmLul7Z5k7W6M/giphy.gif" alt="Sad Panda">`;
+            finalMessage.innerHTML = "Please change your mind... ❤️";
+            yesButton.disabled = true;
+            noButton.disabled = true;
+        });
+
+        // Display final response after both options are selected
+        function showFinalResponse() {
+            setTimeout(() => {
+                finalMessage.innerHTML = "Thank you for playing along! 💕";
+            }, 3000);
+        }
+    </script>
+
+</body>
+</html>
