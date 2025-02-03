@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #ffe6e6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            color: #ff4d4d;
+        }
+        .question {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        .yes {
+            background-color: #ff4d4d;
+            color: white;
+        }
+        .no {
+            background-color: #ddd;
+            color: black;
+            position: absolute;
+        }
+        .yes:hover {
+            background-color: #ff1a1a;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Hey Coco! ❤️</h1>
+    <p class="question">Will you be my Valentine? 😊</p>
+    <div class="buttons">
+        <button class="yes" onclick="showLove()">Yes</button>
+        <button class="no" id="noBtn">No</button>
+    </div>
+</div>
+
+<script>
+    const noBtn = document.getElementById('noBtn');
+
+    // Make the "No" button move away
+    noBtn.addEventListener('mouseover', function () {
+        const x = Math.random() * (window.innerWidth - 100);
+        const y = Math.random() * (window.innerHeight - 50);
+        noBtn.style.left = `${x}px`;
+        noBtn.style.top = `${y}px`;
+    });
+
+    function showLove() {
+        document.body.innerHTML = `
+            <div style="display: flex; justify-content: center; align-items: center; height: 100vh; flex-direction: column;">
+                <h1 style="color: #ff4d4d;">Yay! ❤️</h1>
+                <p style="font-size: 20px;">I knew you'd say yes, Coco! 😍</p>
+                <img src="https://media.giphy.com/media/3ohhwlMErzVYkYz9RK/giphy.gif" alt="Happy Dance" width="200">
+            </div>
+        `;
+    }
+</script>
+
+</body>
+</html>
