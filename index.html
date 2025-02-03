@@ -6,88 +6,119 @@
     <title>Will You Be My Valentine?</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
             text-align: center;
-            background-color: #ffe6e6;
-            margin: 0;
-            padding: 0;
+            padding-top: 50px;
         }
-        .container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-        }
-        h1 {
-            color: #ff4d4d;
-        }
-        .question {
-            font-size: 20px;
-            margin-bottom: 20px;
-        }
-        .buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
+
         button {
+            padding: 15px 30px;
             font-size: 18px;
-            padding: 10px 20px;
-            border: none;
+            margin: 10px;
             cursor: pointer;
-            border-radius: 5px;
-            transition: all 0.3s ease;
+            border: none;
+            border-radius: 10px;
         }
-        .yes {
-            background-color: #ff4d4d;
+
+        #yesBtn {
+            background-color: #ff69b4;
             color: white;
         }
-        .no {
-            background-color: #ddd;
-            color: black;
-            position: absolute;
+
+        #noBtn {
+            background-color: #3498db;
+            color: white;
         }
-        .yes:hover {
-            background-color: #ff1a1a;
+
+        h1 {
+            font-size: 32px;
         }
+
+        .gif-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .gif-container img {
+            max-width: 300px;
+            max-height: 300px;
+            margin: 10px;
+        }
+
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>Hey Coco! ❤️</h1>
-    <p class="question">Will you be my Valentine? 😊</p>
-    <div class="buttons">
-        <button class="yes" onclick="showLove()">Yes</button>
-        <button class="no" id="noBtn">No</button>
-    </div>
-</div>
+    <h1>Will You Be My Valentine?</h1>
 
-<script>
-    const noBtn = document.getElementById('noBtn');
+    <button id="yesBtn">Yes</button>
+    <button id="noBtn">No</button>
 
-    // Make the "No" button move away
-    noBtn.addEventListener('mouseover', function () {
-        const x = Math.random() * (window.innerWidth - 100);
-        const y = Math.random() * (window.innerHeight - 50);
-        noBtn.style.left = `${x}px`;
-        noBtn.style.top = `${y}px`;
-    });
+    <div class="gif-container" id="gifContainer"></div>
 
-    function showLove() {
-        document.body.innerHTML = `
-            <div style="display: flex; justify-content: center; align-items: center; height: 100vh; flex-direction: column;">
-                <h1 style="color: #ff4d4d;">Yay! ❤️</h1>
-                <p style="font-size: 20px;">I knew you'd say yes, Coco! 😍</p>
-                <img src="https://media.giphy.com/media/3ohhwlMErzVYkYz9RK/giphy.gif" alt="Happy Dance" width="200">
-            </div>
-        `;
-    }
-</script>
+    <script>
+        let noCount = 0;
+
+        const yesButton = document.getElementById("yesBtn");
+        const noButton = document.getElementById("noBtn");
+        const gifContainer = document.getElementById("gifContainer");
+
+        // When the user clicks "Yes"
+        yesButton.addEventListener("click", () => {
+            alert("Yayyy! Wasn't too hard at all! This feels exactly like our relationship ❤️");
+            gifContainer.innerHTML = `<img src="https://media.giphy.com/media/jtqNkUxs6gCr2/giphy.gif" alt="Cute Panda Kiss">`;  // Cute panda kiss GIF
+        });
+
+        // When the user clicks "No"
+        noButton.addEventListener("click", () => {
+            noCount++;
+            gifContainer.innerHTML = '';  // Clear previous GIF
+
+            if (noCount === 1) {
+                alert("Pretty please?");
+                gifContainer.innerHTML = `<img src="https://media.giphy.com/media/3oEduXB3RoFCFvQkFY/giphy.gif" alt="Sad Cat">`; // Sad cat GIF
+            } else if (noCount === 2) {
+                alert("Baby please?");
+                gifContainer.innerHTML = `<img src="https://media.giphy.com/media/fA0U6Hl8WB7iA/giphy.gif" alt="Sad Dog">`; // Sad dog GIF
+            } else if (noCount === 3) {
+                alert("I'll give you pasta!");
+                gifContainer.innerHTML = `<img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" alt="Sad Cat">`; // Sad cat GIF
+            } else if (noCount === 4) {
+                alert("How about matcha latte?");
+                gifContainer.innerHTML = `<img src="https://media.giphy.com/media/l0MYgH2RzZZf8DoFw/giphy.gif" alt="Sad Dog">`; // Sad dog GIF
+            } else if (noCount === 5) {
+                alert("IN?");
+                gifContainer.innerHTML = `<img src="https://media.giphy.com/media/l4FGtY5lYamS6Jq7m/giphy.gif" alt="Sad Cat">`; // Sad cat GIF
+            } else if (noCount === 6) {
+                alert("Yes or Yes?");
+                gifContainer.innerHTML = `<img src="https://media.giphy.com/media/3oEduXB3RoFCFvQkFY/giphy.gif" alt="Sad Cat">`; // Sad cat GIF
+            } else if (noCount === 7) {
+                alert("Please? (in French: S'il vous plaît?)");
+                gifContainer.innerHTML = `<img src="https://media.giphy.com/media/l1J9cUhhkwL6l44gw/giphy.gif" alt="Sad Cat">`; // Sad cat GIF
+            } else if (noCount === 8) {
+                alert("Please? (in Spanish: ¿Por favor?)");
+                gifContainer.innerHTML = `<img src="https://media.giphy.com/media/13Br9hx1nxxU9W/giphy.gif" alt="Sad Dog">`; // Sad dog GIF
+            } else if (noCount === 9) {
+                alert("Please? (in Japanese: お願いします?)");
+                gifContainer.innerHTML = `<img src="https://media.giphy.com/media/13Br9hx1nxxU9W/giphy.gif" alt="Sad Dog">`; // Sad dog GIF
+            } else if (noCount === 10) {
+                alert("How about we go to Izumi?");
+                gifContainer.innerHTML = `<img src="https://media.giphy.com/media/3oEduXB3RoFCFvQkFY/giphy.gif" alt="Sad Cat">`; // Sad cat GIF
+            } else if (noCount === 11) {
+                alert("Are you in?");
+                gifContainer.innerHTML = `<img src="https://media.giphy.com/media/3oEduXB3RoFCFvQkFY/giphy.gif" alt="Sad Cat">`; // Sad cat GIF
+            } else {
+                // After 11 times, force the user to choose between 'Yes' and 'Yes'
+                alert("Okay, now it's 'Yes' or 'Yes'!");
+                yesButton.innerText = "Yes";
+                noButton.innerText = "Yes";
+                noButton.disabled = true; // Disable second "Yes" button to only leave one option
+                gifContainer.innerHTML = ''; // Clear GIF container at this stage
+            }
+        });
+    </script>
 
 </body>
 </html>
